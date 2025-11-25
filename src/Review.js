@@ -21,30 +21,30 @@ const Review = () => {
         setIndex((prev) => checkIndex(prev - 1))
     }
 
-    const randomePerson = () => {
-        let randomIndex = Math.floor(Math.random() * reviews.length - 1);
-        if (randomIndex === index) {
-            randomIndex = index + 1
-        }
+  const randomPerson = () => {
+  let randomIndex = Math.floor(Math.random() * reviews.length);
+  if (randomIndex === index) {
+    randomIndex = index + 1;
+  }
+  setIndex(checkIndex(randomIndex));
+}
 
-        setIndex(checkIndex(randomIndex))
-    }
 
 
     return (
-        <artical className='review'>
-            <img src={image} alt={name} className='person-img' />
+        <article className='review'>
+            <img className="person-img" src={image} alt={name}/>
             <h4 className='author' id={`author-${id}`}>{name}</h4>
 
             <p className='job'>{job}</p>
-            <p className='text'>{text}</p>
+            <p className='info'>{text}</p>
             <div>
                 <button className='prev-btn' onClick={prevPerson}>Previous</button>
                 <button className='next-btn' onClick={nextPerson}>Next</button>
             </div>
 
-            <button className='random-btn' onClick={randomePerson}>suprise me</button>
-        </artical>
+            <button className='random-btn' onClick={randomPerson}>surprise me</button>
+        </article>
     )
 }
 
